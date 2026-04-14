@@ -1,0 +1,539 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Abejita Chiquitita — Todo lo dulce para tu fiesta. Antojitos y entretenimiento para eventos en Durango, Sombrerete, Vicente Guerrero, Nombre de Dios, Chalchihuites, Suchil y San José de Ranchos.">
+<title>Abejita Chiquitita — ¡Todo lo dulce para tu fiesta!</title>
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;600;700;800&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--yellow:#FFD600;--yellow-hover:#FFE033;--black:#1A1A1A;--cream:#FFFBF0;--yellow-light:#FFF9C4;--text:#2D2D2D;--white:#FFFFFF;}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:'Nunito',sans-serif;background:var(--cream);color:var(--text);overflow-x:hidden}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:1000;background:rgba(26,26,26,0.97);backdrop-filter:blur(10px);display:flex;align-items:center;justify-content:space-between;padding:0.5rem 2rem;border-bottom:3px solid var(--yellow);min-height:64px;}
+.nav-logo{display:flex;align-items:center;gap:0.75rem}
+.nav-logo img{width:42px;height:42px;border-radius:50%;border:2px solid var(--yellow);object-fit:cover;flex-shrink:0;display:block;vertical-align:middle}
+.nav-logo span{font-family:'Baloo 2',cursive;font-size:1.15rem;font-weight:800;color:var(--yellow);line-height:1.1}
+.nav-logo small{display:block;font-size:0.62rem;color:#aaa;font-weight:400;letter-spacing:0.05em}
+.nav-links{display:flex;gap:1.5rem;list-style:none}
+.nav-links a{color:var(--yellow);text-decoration:none;font-size:0.88rem;font-weight:700;transition:color 0.2s}
+.nav-links a:hover{color:var(--yellow-hover)}
+.nav-cta{background:var(--yellow)!important;color:var(--black)!important;padding:0.45rem 1.1rem;border-radius:50px}
+
+/* HERO */
+#hero{min-height:100vh;background:var(--black);display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden;padding-top:90px}
+.hero-bg{position:absolute;inset:0;background-image:url('hero-bg.jpg');background-size:cover;background-position:center;opacity:0.18;filter:blur(3px)}
+.hero-glow{position:absolute;inset:0;background:radial-gradient(ellipse at 30% 70%,rgba(255,214,0,0.12) 0%,transparent 55%),radial-gradient(ellipse at 70% 30%,rgba(255,214,0,0.08) 0%,transparent 55%);pointer-events:none}
+.hero-content{position:relative;z-index:2;text-align:center;padding:2rem 2rem 3rem;animation:fadeUp 0.8s ease both}
+@keyframes fadeUp{from{opacity:0;transform:translateY(30px)}to{opacity:1;transform:translateY(0)}}
+.hero-logo{width:130px;height:130px;border-radius:50%;border:4px solid var(--yellow);object-fit:cover;margin:0 auto 1.5rem;display:block;box-shadow:0 0 50px rgba(255,214,0,0.4);animation:fadeUp 0.8s ease 0.1s both}
+.hero-tagline{font-size:0.85rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--yellow);font-weight:700;margin-bottom:0.75rem;animation:fadeUp 0.8s ease 0.2s both}
+.hero-title{font-family:'Baloo 2',cursive;font-size:clamp(2.4rem,7vw,4.8rem);font-weight:800;color:var(--yellow);line-height:1.05;margin-bottom:0.75rem;animation:fadeUp 0.8s ease 0.3s both}
+.hero-title span{color:var(--yellow-hover);display:block}
+.hero-subtitle{font-size:clamp(0.95rem,2.5vw,1.2rem);color:#ccc;max-width:580px;margin:0 auto 0.85rem;animation:fadeUp 0.8s ease 0.4s both}
+.hero-area{font-size:0.82rem;color:var(--yellow);font-weight:600;margin-bottom:2.5rem;animation:fadeUp 0.8s ease 0.45s both}
+.hero-buttons{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;animation:fadeUp 0.8s ease 0.5s both}
+.btn-primary{background:var(--yellow);color:var(--black);padding:0.9rem 2rem;border-radius:50px;font-size:1rem;font-weight:800;text-decoration:none;transition:all 0.2s;box-shadow:0 4px 20px rgba(255,214,0,0.4);display:inline-flex;align-items:center;gap:0.5rem}
+.btn-primary:hover{background:var(--yellow-hover);transform:translateY(-2px)}
+.btn-secondary{background:transparent;color:var(--yellow);padding:0.9rem 2rem;border-radius:50px;font-size:1rem;font-weight:700;text-decoration:none;border:2px solid var(--yellow);transition:all 0.2s;display:inline-flex;align-items:center;gap:0.5rem}
+.btn-secondary:hover{border-color:var(--yellow-hover);color:var(--yellow-hover)}
+
+/* SECTIONS */
+section{padding:5rem 1.5rem}
+.section-label{font-size:0.78rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--yellow);font-weight:700;margin-bottom:0.5rem;text-align:center}
+.section-title{font-family:'Baloo 2',cursive;font-size:clamp(1.8rem,4vw,2.8rem);font-weight:800;text-align:center;color:var(--yellow);margin-bottom:1rem}
+.section-desc{text-align:center;color:#888;max-width:600px;margin:0 auto 3rem;font-size:1rem;line-height:1.7}
+
+/* ABOUT */
+#about{background:var(--black);padding:4rem 1.5rem}
+.about-inner{max-width:1000px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:3rem;align-items:center}
+.about-text .section-title{text-align:left}
+.about-text .section-label{text-align:left}
+.about-text p{color:#cccccc;line-height:1.8;margin-bottom:1rem;font-size:1rem;background:transparent}
+.about-stats{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+.stat-box{background:rgba(255,214,0,0.08);border:1px solid rgba(255,214,0,0.2);border-radius:12px;padding:1.25rem;text-align:center}
+.stat-number{font-family:'Baloo 2',cursive;font-size:2rem;font-weight:800;color:var(--yellow);display:block}
+.stat-label{font-size:0.78rem;color:#888;font-weight:600;text-transform:uppercase;letter-spacing:0.05em}
+
+/* SERVICES */
+#servicios{background:var(--cream)}
+.services-grid{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:1.25rem}
+.service-card{background:var(--white);border-radius:16px;overflow:hidden;box-shadow:0 4px 20px rgba(0,0,0,0.07);transition:transform 0.3s,box-shadow 0.3s;position:relative;display:flex;flex-direction:column}
+.service-card:hover{transform:translateY(-5px);box-shadow:0 12px 35px rgba(255,214,0,0.2)}
+.card-img-wrap{width:100%;height:180px;background:#f9f9f9;display:flex;align-items:center;justify-content:center;overflow:hidden}
+.card-img-wrap img{max-width:100%;max-height:100%;object-fit:contain;padding:0.75rem}
+.card-img-wrap.cover img{object-fit:cover;width:100%;height:100%;padding:0}
+.card-body{padding:0.9rem 1rem 1.1rem;flex:1}
+.service-card h3{font-family:'Baloo 2',cursive;font-size:1rem;font-weight:700;color:var(--yellow);margin-bottom:0.2rem}
+.service-card .price{font-size:0.88rem;font-weight:800;color:#444;margin-bottom:0.3rem}
+.service-card .tax-note{font-size:0.68rem;color:#aaa;margin-bottom:0.3rem}
+.service-card p{font-size:0.78rem;color:#777;line-height:1.5}
+.card-tag{position:absolute;top:0.6rem;right:0.6rem;background:var(--yellow);color:var(--black);font-size:0.62rem;font-weight:800;padding:0.18rem 0.5rem;border-radius:50px;text-transform:uppercase;z-index:2}
+
+/* GALLERY */
+#galeria{background:var(--yellow-light)}
+.gallery-grid{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:repeat(4,1fr);gap:0.9rem}
+.gal-item{border-radius:14px;overflow:hidden;position:relative;aspect-ratio:3/4;cursor:pointer}
+.gal-item.wide{grid-column:span 2;aspect-ratio:16/9}
+.gal-item.tall{grid-row:span 2;aspect-ratio:unset}
+.gal-item img{width:100%;height:100%;object-fit:cover;transition:transform 0.4s}
+.gal-item:hover img{transform:scale(1.06)}
+
+/* QUOTE BUILDER */
+#cotizacion{background:var(--black)}
+#cotizacion .section-title{color:var(--yellow)}
+.quote-builder{max-width:960px;margin:0 auto}
+.quote-items{display:grid;grid-template-columns:repeat(auto-fit,minmax(255px,1fr));gap:0.9rem;margin-bottom:1.75rem}
+.quote-item{background:rgba(255,255,255,0.04);border:1px solid rgba(255,214,0,0.15);border-radius:13px;padding:1rem;display:flex;align-items:center;gap:0.85rem;transition:border-color 0.2s,background 0.2s}
+.quote-item.active{border-color:var(--yellow);background:rgba(255,214,0,0.08)}
+.quote-item .qi-img{width:54px;height:54px;object-fit:contain;border-radius:8px;background:#fff;padding:3px;flex-shrink:0}
+.qi-info{flex:1}
+.qi-info h4{font-family:'Baloo 2',cursive;font-size:0.88rem;font-weight:700;color:var(--yellow);margin-bottom:0.05rem}
+.qi-info .unit-price{font-size:0.7rem;color:#888;margin-bottom:0.4rem}
+.qty-control{display:flex;align-items:center;gap:0.4rem}
+.qty-btn{width:25px;height:25px;border-radius:50%;border:none;background:var(--yellow);color:var(--black);font-size:1rem;font-weight:800;cursor:pointer;display:flex;align-items:center;justify-content:center;line-height:1;transition:background 0.2s}
+.qty-btn:hover{background:var(--yellow-hover)}
+.qty-input{width:44px;text-align:center;background:rgba(255,255,255,0.07);border:1px solid rgba(255,214,0,0.25);border-radius:7px;padding:0.2rem;color:var(--yellow);font-weight:700;font-size:0.85rem;font-family:'Nunito',sans-serif}
+.qi-total{font-size:0.8rem;font-weight:800;color:var(--yellow);white-space:nowrap;min-width:62px;text-align:right}
+.fuel-note{background:rgba(255,214,0,0.06);border:1px solid rgba(255,214,0,0.18);border-radius:10px;padding:0.9rem 1.2rem;margin-bottom:1.4rem;font-size:0.8rem;color:#888;line-height:1.7}
+.quote-total-bar{background:rgba(255,214,0,0.1);border:2px solid var(--yellow);border-radius:13px;padding:1.3rem 1.7rem;margin-bottom:1.4rem;display:none;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem}
+.quote-total-bar.visible{display:flex}
+.total-label{font-family:'Baloo 2',cursive;font-size:1.05rem;color:var(--yellow);font-weight:700}
+.total-amount{font-family:'Baloo 2',cursive;font-size:1.9rem;color:var(--yellow);font-weight:800}
+.total-note{font-size:0.72rem;color:#777;margin-top:0.15rem}
+
+/* FORM */
+.contact-form{background:rgba(255,255,255,0.03);border:1px solid rgba(255,214,0,0.12);border-radius:16px;padding:1.75rem}
+.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:0.9rem;margin-bottom:0.9rem}
+.form-group{display:flex;flex-direction:column;gap:0.3rem}
+.form-group.full{grid-column:1/-1}
+.form-group label{font-size:0.7rem;font-weight:700;text-transform:uppercase;letter-spacing:0.05em;color:var(--yellow)}
+.form-group input,.form-group select,.form-group textarea{background:rgba(255,255,255,0.06);border:1px solid rgba(255,214,0,0.18);border-radius:8px;padding:0.65rem 0.85rem;color:var(--yellow);font-family:'Nunito',sans-serif;font-size:0.88rem;outline:none;width:100%;transition:border-color 0.2s}
+.form-group input::placeholder{color:#555}
+.form-group input:focus,.form-group select:focus,.form-group textarea:focus{border-color:var(--yellow)}
+.form-group select option{background:#2a2a2a;color:var(--yellow)}
+.form-group textarea{resize:vertical;min-height:72px}
+.form-submit{width:100%;background:var(--yellow);color:var(--black);border:none;padding:0.95rem;border-radius:50px;font-size:1.05rem;font-weight:800;font-family:'Baloo 2',cursive;cursor:pointer;margin-top:0.9rem;transition:all 0.2s}
+.form-submit:hover{background:var(--yellow-hover);transform:translateY(-2px);box-shadow:0 6px 25px rgba(255,214,0,0.35)}
+.form-note{text-align:center;color:#666;font-size:0.74rem;margin-top:0.65rem}
+
+/* SOCIAL BUTTONS */
+.footer-social{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;margin-bottom:1.5rem}
+.social-btn{display:inline-flex;align-items:center;gap:0.5rem;padding:0.6rem 1.4rem;border-radius:50px;font-size:0.9rem;font-weight:700;text-decoration:none;transition:all 0.2s;font-family:'Nunito',sans-serif}
+.social-btn svg{width:20px;height:20px;flex-shrink:0}
+.social-btn.facebook{background:#1877F2;color:#fff}
+.social-btn.facebook svg{fill:#fff}
+.social-btn.facebook:hover{background:#0d6dda;transform:translateY(-2px)}
+.social-btn.tiktok{background:#000;color:#fff;border:1px solid #333}
+.social-btn.tiktok svg{fill:#fff}
+.social-btn.tiktok:hover{background:#111;transform:translateY(-2px)}
+
+/* WHATSAPP */
+.whatsapp-float{position:fixed;bottom:2rem;right:2rem;z-index:999;background:#25D366;width:60px;height:60px;border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 20px rgba(37,211,102,0.4);text-decoration:none;transition:all 0.3s;animation:pulse 2s infinite}
+@keyframes pulse{0%,100%{box-shadow:0 4px 20px rgba(37,211,102,0.4)}50%{box-shadow:0 4px 35px rgba(37,211,102,0.7)}}
+.whatsapp-float:hover{transform:scale(1.1);background:#1fb855}
+.whatsapp-float svg{width:32px;height:32px;fill:white}
+
+/* FOOTER */
+footer{background:#111;border-top:3px solid var(--yellow);padding:3rem 1.5rem 2rem;text-align:center}
+.footer-logo{width:80px;height:80px;border-radius:50%;border:2px solid var(--yellow);object-fit:cover;margin:0 auto 1rem;display:block}
+.footer-name{font-family:'Baloo 2',cursive;font-size:1.5rem;font-weight:800;color:var(--yellow);margin-bottom:0.25rem}
+.footer-slogan{color:#777;font-size:0.9rem;margin-bottom:1.5rem}
+.footer-contact{display:flex;gap:1.5rem;justify-content:center;flex-wrap:wrap;margin-bottom:1.5rem}
+.footer-contact a{color:var(--yellow);text-decoration:none;font-size:0.9rem;display:flex;align-items:center;gap:0.4rem;transition:color 0.2s}
+.footer-contact a:hover{color:var(--yellow-hover)}
+.footer-areas{font-size:0.8rem;color:#555;max-width:600px;margin:0 auto 1.5rem;line-height:1.6}
+.footer-copy{font-size:0.75rem;color:#444;border-top:1px solid #222;padding-top:1.5rem;margin-top:1.5rem}
+
+/* RESPONSIVE */
+@media(max-width:900px){.gallery-grid{grid-template-columns:repeat(2,1fr)}.gal-item.wide{grid-column:span 2}.gal-item.tall{grid-row:span 1;aspect-ratio:3/4}}
+@media(max-width:768px){.nav-links{display:none}.about-inner{grid-template-columns:1fr;gap:2rem}.about-text .section-title,.about-text .section-label{text-align:center}.form-grid{grid-template-columns:1fr}.quote-total-bar{flex-direction:column;text-align:center}}
+@media(max-width:480px){.hero-buttons{flex-direction:column;align-items:center}.quote-items{grid-template-columns:1fr}.gallery-grid{grid-template-columns:1fr 1fr}}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-logo">
+    <img src="logo.jpg" alt="Abejita Chiquitita">
+    <div><span>Abejita Chiquitita</span><small>¡Todo lo dulce para tu fiesta!</small></div>
+  </div>
+  <ul class="nav-links">
+    <li><a href="#about">Nosotros</a></li>
+    <li><a href="#servicios">Servicios</a></li>
+    <li><a href="#galeria">Galería</a></li>
+    <li><a href="#cotizacion" class="nav-cta">📋 Cotización</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-glow"></div>
+  <div class="hero-content">
+    <img src="logo.jpg" alt="Abejita Chiquitita" class="hero-logo">
+    <p class="hero-tagline">🍯 Antojitos y Entretenimiento para Eventos</p>
+    <h1 class="hero-title">¡Todo lo dulce <span>para tu fiesta!</span></h1>
+    <p class="hero-subtitle">Antojitos deliciosos, entretenimiento único y recuerdos inolvidables para cada celebración.</p>
+    <p class="hero-area">📍 Durango · Sombrerete · Vicente Guerrero · Nombre de Dios · Chalchihuites · Suchil · San José de Ranchos · y áreas circundantes</p>
+    <div class="hero-buttons">
+      <a href="#cotizacion" class="btn-primary">📋 Cotización Gratis</a>
+      <a href="#servicios" class="btn-secondary">Ver Servicios ↓</a>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="about-inner">
+    <div class="about-text">
+      <p class="section-label">¿Quiénes somos?</p>
+      <h2 class="section-title">La fiesta perfecta<br>empieza aquí</h2>
+      <p>Somos Abejita Chiquitita, tu negocio familiar de confianza para hacer de cada evento algo especial. Llevamos sabor, diversión y experiencias únicas directamente a tu celebración.</p>
+      <p>Desde antojitos irresistibles hasta entretenimiento para toda la familia — cubrimos todo para que tú solo te preocupes por disfrutar.</p>
+    </div>
+    <div class="about-stats">
+      <div class="stat-box"><span class="stat-number">14+</span><span class="stat-label">Servicios</span></div>
+      <div class="stat-box"><span class="stat-number">7</span><span class="stat-label">Municipios</span></div>
+      <div class="stat-box"><span class="stat-number">100%</span><span class="stat-label">Servicio Completo</span></div>
+      <div class="stat-box"><span class="stat-number">🍯</span><span class="stat-label">Dulzura Garantizada</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section id="servicios">
+  <p class="section-label">Lo que ofrecemos</p>
+  <h2 class="section-title">Nuestros Servicios</h2>
+  <p class="section-desc">Todo lo que necesitas para una fiesta perfecta en un solo lugar. Precios con IVA incluido.</p>
+  <div class="services-grid">
+    <div class="service-card">
+      <div class="card-img-wrap"><img src="svc-hotdog.png" alt="Hot Dogs"></div>
+      <div class="card-body"><h3>Hot Dogs</h3><div class="price">$34.00 c/u</div><div class="tax-note">IVA incluido</div><p>Deliciosos hot dogs estilo americano. Servicio completo para tu evento.</p></div>
+    </div>
+    <div class="service-card">
+      <div class="card-img-wrap"><img src="svc-palomitas.png" alt="Palomitas"></div>
+      <div class="card-body"><h3>Palomitas</h3><div class="price">$12.00 c/u</div><div class="tax-note">IVA incluido</div><p>Palomitas crujientes y calientitas. El snack favorito de la familia.</p></div>
+    </div>
+    <div class="service-card">
+      <div class="card-img-wrap"><img src="svc-raspado.png" alt="Raspados"></div>
+      <div class="card-body"><h3>Raspados</h3><div class="price">$34.00 c/u</div><div class="tax-note">IVA incluido</div><p>Refrescantes raspados en sabores naturales. El antojo ideal para el calor.</p></div>
+    </div>
+    <div class="service-card">
+      <div class="card-img-wrap"><img src="svc-algodon.png" alt="Algodones de Azúcar"></div>
+      <div class="card-body"><h3>Algodones de Azúcar</h3><div class="price">$28.00 c/u</div><div class="tax-note">IVA incluido</div><p>Suaves y esponjosos algodones de colores. ¡Los niños los adoran!</p></div>
+    </div>
+    <div class="service-card">
+      <span class="card-tag">Popular</span>
+      <div class="card-img-wrap"><img src="svc-taco.png" alt="Tacos"></div>
+      <div class="card-body"><h3>Tacos</h3><div class="price">$90.00 x orden de 5</div><div class="tax-note">IVA incluido · verduras y salsa incluidas</div><p>¡Sabor de verdad! Órdenes de 5 tacos con todo incluido.</p></div>
+    </div>
+    <div class="service-card">
+      <div class="card-img-wrap"><img src="svc-agua.png" alt="Aguas Frescas"></div>
+      <div class="card-body"><h3>Aguas Frescas</h3><div class="price">$28.00 c/u — 16 oz</div><div class="tax-note">IVA incluido · sabores naturales</div><p>Frescura para todos tus invitados.</p></div>
+    </div>
+    <div class="service-card">
+      <div class="card-img-wrap"><img src="svc-papa.png" alt="Papas en Espiral"></div>
+      <div class="card-body"><h3>Papas en Espiral</h3><div class="price">$34.00 c/u</div><div class="tax-note">IVA incluido</div><p>¡Irresistibles EspiroPapas crujientes y deliciosas!</p></div>
+    </div>
+    <div class="service-card">
+      <div class="card-img-wrap"><img src="svc-churros.png" alt="Churros de Azúcar"></div>
+      <div class="card-body"><h3>Churros de Azúcar</h3><div class="price">$23.00 c/u</div><div class="tax-note">IVA incluido</div><p>Dulces y crujientes churros. ¡Con chocolate o cajeta!</p></div>
+    </div>
+    <div class="service-card">
+      <div class="card-img-wrap"><img src="svc-wafles.jpg" alt="Wafles"></div>
+      <div class="card-body"><h3>Wafles</h3><div class="price">2 x $12.00</div><div class="tax-note">IVA incluido</div><p>Calientitos y deliciosos con tus toppings favoritos.</p></div>
+    </div>
+    <div class="service-card">
+      <div class="card-img-wrap cover"><img src="svc-papprep.jpg" alt="Papas Preparadas"></div>
+      <div class="card-body"><h3>Papas Preparadas</h3><div class="price">Por confirmar</div><div class="tax-note">IVA incluido en precio final</div><p>Papas con crema, queso, cátsup y más.</p></div>
+    </div>
+    <div class="service-card">
+      <div class="card-img-wrap"><img src="svc-nachos.jpg" alt="Nachos"></div>
+      <div class="card-body"><h3>Nachos</h3><div class="price">Por confirmar</div><div class="tax-note">IVA incluido en precio final</div><p>Nachos crujientes con queso fundido y jalapeños.</p></div>
+    </div>
+    <div class="service-card">
+      <div class="card-img-wrap" style="background:#e8f4ff"><img src="svc-water.jpg" alt="Agua Embotellada"></div>
+      <div class="card-body"><h3>Agua Embotellada</h3><div class="price">$12.00 c/u</div><div class="tax-note">IVA incluido</div><p>Agua fresca para tus invitados.</p></div>
+    </div>
+    <div class="service-card">
+      <span class="card-tag">⭐ Estrella</span>
+      <div class="card-img-wrap"><img src="svc-casa.png" alt="Casa Disco Inflable"></div>
+      <div class="card-body"><h3>Casa Disco Inflable</h3><div class="price">$3,700.00 por evento</div><div class="tax-note">IVA incluido · música y luces incluidas</div><p>¡Diversión sin límites! Baile y fiesta para toda la noche.</p></div>
+    </div>
+    <div class="service-card">
+      <div class="card-img-wrap" style="background:#0a0a1a;font-size:3.5rem;display:flex;align-items:center;justify-content:center;">🎬</div>
+      <div class="card-body"><h3>Cine al Aire Libre</h3><div class="price">$2,800.00 por evento</div><div class="tax-note">IVA incluido · tú escoges la película</div><p>Pantalla, proyector y sonido bajo las estrellas.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- GALLERY -->
+<section id="galeria">
+  <p class="section-label">Nuestros servicios en imágenes</p>
+  <h2 class="section-title">Galería</h2>
+  <p class="section-desc">Una probadita de todo lo que Abejita Chiquitita tiene para tu fiesta.</p>
+  <div class="gallery-grid">
+    <div class="gal-item wide"><img src="gal-casa.jpg" alt="Casa Disco Inflable"></div>
+    <div class="gal-item tall"><img src="gal-cine.jpg" alt="Cine al Aire Libre"></div>
+    <div class="gal-item"><img src="gal-raspados.jpg" alt="Raspados"></div>
+    <div class="gal-item"><img src="gal-palomitas.jpg" alt="Palomitas"></div>
+    <div class="gal-item"><img src="gal-hotdog.jpg" alt="Hot Dogs"></div>
+    <div class="gal-item"><img src="gal-papas.jpg" alt="EspiroPapas"></div>
+    <div class="gal-item"><img src="gal-algodon.jpg" alt="Algodón de Azúcar"></div>
+    <div class="gal-item"><img src="gal-churros.jpg" alt="Churros"></div>
+    <div class="gal-item"><img src="gal-wafles.jpg" alt="Wafles"></div>
+    <div class="gal-item"><img src="gal-general.jpg" alt="Abejita Chiquitita"></div>
+  </div>
+</section>
+
+<!-- QUOTE BUILDER -->
+<section id="cotizacion">
+  <p class="section-label">¡Sin costo y sin compromiso!</p>
+  <h2 class="section-title">Arma tu Cotización</h2>
+  <p class="section-desc" style="color:#888;">Elige tus servicios y cantidades. Llena tus datos para ver el total y enviarnos tu solicitud.</p>
+  <div class="quote-builder">
+    <div class="quote-items">
+      <div class="quote-item" data-service="Hot Dogs" data-price="34.00" data-step="5">
+        <img src="svc-hotdog.png" class="qi-img" alt="Hot Dogs">
+        <div class="qi-info"><h4>Hot Dogs</h4><div class="unit-price">$34.00 c/u (IVA inc.)</div>
+          <div class="qty-control"><button class="qty-btn minus">−</button><input type="number" class="qty-input" value="0" min="0"><button class="qty-btn plus">+</button></div>
+        </div><div class="qi-total">$0.00</div>
+      </div>
+      <div class="quote-item" data-service="Palomitas" data-price="12.00" data-step="5">
+        <img src="svc-palomitas.png" class="qi-img" alt="Palomitas">
+        <div class="qi-info"><h4>Palomitas</h4><div class="unit-price">$12.00 c/u (IVA inc.)</div>
+          <div class="qty-control"><button class="qty-btn minus">−</button><input type="number" class="qty-input" value="0" min="0"><button class="qty-btn plus">+</button></div>
+        </div><div class="qi-total">$0.00</div>
+      </div>
+      <div class="quote-item" data-service="Raspados" data-price="34.00" data-step="5">
+        <img src="svc-raspado.png" class="qi-img" alt="Raspados">
+        <div class="qi-info"><h4>Raspados</h4><div class="unit-price">$34.00 c/u (IVA inc.)</div>
+          <div class="qty-control"><button class="qty-btn minus">−</button><input type="number" class="qty-input" value="0" min="0"><button class="qty-btn plus">+</button></div>
+        </div><div class="qi-total">$0.00</div>
+      </div>
+      <div class="quote-item" data-service="Algodones de Azúcar" data-price="28.00" data-step="5">
+        <img src="svc-algodon.png" class="qi-img" alt="Algodones">
+        <div class="qi-info"><h4>Algodones de Azúcar</h4><div class="unit-price">$28.00 c/u (IVA inc.)</div>
+          <div class="qty-control"><button class="qty-btn minus">−</button><input type="number" class="qty-input" value="0" min="0"><button class="qty-btn plus">+</button></div>
+        </div><div class="qi-total">$0.00</div>
+      </div>
+      <div class="quote-item" data-service="Tacos (orden de 5)" data-price="90.00" data-step="5">
+        <img src="svc-taco.png" class="qi-img" alt="Tacos">
+        <div class="qi-info"><h4>Tacos</h4><div class="unit-price">$90.00 x orden de 5 (IVA inc.)</div>
+          <div class="qty-control"><button class="qty-btn minus">−</button><input type="number" class="qty-input" value="0" min="0"><button class="qty-btn plus">+</button></div>
+        </div><div class="qi-total">$0.00</div>
+      </div>
+      <div class="quote-item" data-service="Aguas Frescas Naturales" data-price="28.00" data-step="5">
+        <img src="svc-agua.png" class="qi-img" alt="Aguas Frescas">
+        <div class="qi-info"><h4>Aguas Frescas</h4><div class="unit-price">$28.00 c/u (IVA inc.)</div>
+          <div class="qty-control"><button class="qty-btn minus">−</button><input type="number" class="qty-input" value="0" min="0"><button class="qty-btn plus">+</button></div>
+        </div><div class="qi-total">$0.00</div>
+      </div>
+      <div class="quote-item" data-service="Papas en Espiral" data-price="34.00" data-step="5">
+        <img src="svc-papa.png" class="qi-img" alt="Papas en Espiral">
+        <div class="qi-info"><h4>Papas en Espiral</h4><div class="unit-price">$34.00 c/u (IVA inc.)</div>
+          <div class="qty-control"><button class="qty-btn minus">−</button><input type="number" class="qty-input" value="0" min="0"><button class="qty-btn plus">+</button></div>
+        </div><div class="qi-total">$0.00</div>
+      </div>
+      <div class="quote-item" data-service="Churros de Azúcar" data-price="23.00" data-step="5">
+        <img src="svc-churros.png" class="qi-img" alt="Churros">
+        <div class="qi-info"><h4>Churros de Azúcar</h4><div class="unit-price">$23.00 c/u (IVA inc.)</div>
+          <div class="qty-control"><button class="qty-btn minus">−</button><input type="number" class="qty-input" value="0" min="0"><button class="qty-btn plus">+</button></div>
+        </div><div class="qi-total">$0.00</div>
+      </div>
+      <div class="quote-item" data-service="Wafles (2 piezas)" data-price="12.00" data-step="5">
+        <img src="svc-wafles.jpg" class="qi-img" alt="Wafles">
+        <div class="qi-info"><h4>Wafles (2 pzas)</h4><div class="unit-price">$12.00 x 2 piezas (IVA inc.)</div>
+          <div class="qty-control"><button class="qty-btn minus">−</button><input type="number" class="qty-input" value="0" min="0"><button class="qty-btn plus">+</button></div>
+        </div><div class="qi-total">$0.00</div>
+      </div>
+      <div class="quote-item" data-service="Papas Preparadas" data-price="0" data-tbd="true" data-step="5">
+        <img src="svc-papprep.jpg" class="qi-img" alt="Papas Preparadas">
+        <div class="qi-info"><h4>Papas Preparadas</h4><div class="unit-price">Precio por confirmar</div>
+          <div class="qty-control"><button class="qty-btn minus">−</button><input type="number" class="qty-input" value="0" min="0"><button class="qty-btn plus">+</button></div>
+        </div><div class="qi-total">—</div>
+      </div>
+      <div class="quote-item" data-service="Nachos" data-price="0" data-tbd="true" data-step="5">
+        <img src="svc-nachos.jpg" class="qi-img" alt="Nachos">
+        <div class="qi-info"><h4>Nachos</h4><div class="unit-price">Precio por confirmar</div>
+          <div class="qty-control"><button class="qty-btn minus">−</button><input type="number" class="qty-input" value="0" min="0"><button class="qty-btn plus">+</button></div>
+        </div><div class="qi-total">—</div>
+      </div>
+      <div class="quote-item" data-service="Agua Embotellada" data-price="12.00" data-step="5">
+        <img src="svc-water.jpg" class="qi-img" alt="Agua Embotellada">
+        <div class="qi-info"><h4>Agua Embotellada</h4><div class="unit-price">$12.00 c/u (IVA inc.)</div>
+          <div class="qty-control"><button class="qty-btn minus">−</button><input type="number" class="qty-input" value="0" min="0"><button class="qty-btn plus">+</button></div>
+        </div><div class="qi-total">$0.00</div>
+      </div>
+      <div class="quote-item" data-service="Casa Disco Inflable" data-price="3700" data-max="1">
+        <img src="svc-casa.png" class="qi-img" alt="Casa Disco Inflable">
+        <div class="qi-info"><h4>Casa Disco Inflable</h4><div class="unit-price">$3,700.00 por evento (IVA inc.)</div>
+          <div class="qty-control"><button class="qty-btn minus">−</button><input type="number" class="qty-input" value="0" min="0" max="1"><button class="qty-btn plus">+</button></div>
+        </div><div class="qi-total">$0.00</div>
+      </div>
+      <div class="quote-item" data-service="Cine al Aire Libre" data-price="2800" data-max="1">
+        <div class="qi-img" style="background:#0a0a1a;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:1.8rem;flex-shrink:0;width:54px;height:54px;">🎬</div>
+        <div class="qi-info"><h4>Cine al Aire Libre</h4><div class="unit-price">$2,800.00 por evento (IVA inc.)</div>
+          <div class="qty-control"><button class="qty-btn minus">−</button><input type="number" class="qty-input" value="0" min="0" max="1"><button class="qty-btn plus">+</button></div>
+        </div><div class="qi-total">$0.00</div>
+      </div>
+    </div>
+
+    <div class="fuel-note">* En caso de aplicar, los cargos por combustible serán incluidos en la cotización y contrato final.</div>
+
+    <div class="quote-total-bar" id="total-bar">
+      <div>
+        <div class="total-label">💰 Total Estimado de tu Evento</div>
+        <div class="total-note">Precios en MXN con IVA incluido. Sujeto a confirmación.</div>
+      </div>
+      <div class="total-amount" id="grand-total">$0.00</div>
+    </div>
+
+    <div class="contact-form">
+      <form action="https://formsubmit.co/serviciocliente@abejitachiquitita.com" method="POST">
+        <input type="hidden" name="_subject" value="Nueva Cotización — Abejita Chiquitita">
+        <input type="hidden" name="_captcha" value="false">
+        <input type="hidden" name="_template" value="table">
+        <input type="hidden" name="cotizacion_detalle" id="hidden-quote-detail" value="">
+        <input type="hidden" name="total_estimado" id="hidden-quote-total" value="">
+        <div class="form-grid">
+          <div class="form-group"><label>Tu Nombre *</label><input type="text" name="nombre" id="f-nombre" placeholder="Nombre completo" required></div>
+          <div class="form-group"><label>Teléfono / WhatsApp *</label><input type="tel" name="telefono" id="f-tel" placeholder="618-000-0000" required></div>
+          <div class="form-group"><label>Fecha del Evento *</label><input type="date" name="fecha_evento" id="f-fecha" required></div>
+          <div class="form-group"><label>Municipio / Localidad *</label>
+            <select name="municipio" id="f-municipio" required>
+              <option value="">Selecciona...</option>
+              <option>Durango</option><option>Sombrerete</option><option>Vicente Guerrero</option>
+              <option>Nombre de Dios</option><option>Chalchihuites</option><option>Suchil</option>
+              <option>San José de Ranchos</option><option>Santiago</option><option>Villa Unión</option>
+              <option>La Joya</option><option>Hidalgo</option><option>Charco Blanco</option>
+              <option>San Martín</option><option>Gualterio</option><option>José María Morelos</option>
+              <option>San José de Félix</option><option>San José de las Corrientes</option>
+              <option>Villa Insurgentes</option><option>San Isidro de Míchila</option>
+              <option>José María Morelos y Pavón</option><option>El Nayar</option>
+              <option>Contreras</option><option>Cinco de Mayo</option><option>Cinco de Febrero</option>
+              <option>El Arenal</option><option>Villa Montemorelos</option>
+              <option>San Isidro de Murillos</option><option>Otro</option>
+            </select>
+          </div>
+          <div class="form-group"><label>Tipo de Evento</label>
+            <select name="tipo_evento">
+              <option value="">Selecciona...</option>
+              <option>Cumpleaños</option><option>Boda</option><option>Quinceañera</option>
+              <option>Bautizo</option><option>Graduación</option><option>Evento Comunitario</option><option>Otro</option>
+            </select>
+          </div>
+          <div class="form-group"><label>Número de Personas</label><input type="number" name="personas" placeholder="Ej: 100" min="1"></div>
+          <div class="form-group full"><label>Notas adicionales</label><textarea name="notas" placeholder="Horario, dirección, solicitud especial..."></textarea></div>
+        </div>
+        <button type="submit" class="form-submit">📋 Enviar Mi Cotización</button>
+        <p class="form-note">También puedes escribirnos por WhatsApp · Respondemos en menos de 24 horas</p>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <img src="logo.jpg" alt="Abejita Chiquitita" class="footer-logo">
+  <div class="footer-name">Abejita Chiquitita</div>
+  <div class="footer-slogan">¡Todo lo dulce para tu fiesta!</div>
+  <div class="footer-contact">
+    <a href="tel:6182710341">📞 618-271-0341</a>
+    <a href="mailto:serviciocliente@abejitachiquitita.com">✉️ serviciocliente@abejitachiquitita.com</a>
+  </div>
+  <div class="footer-social">
+    <a href="https://www.facebook.com/profile.php?id=61575429570870" target="_blank" rel="noopener" class="social-btn facebook">
+      <svg viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+      Facebook
+    </a>
+    <a href="https://www.tiktok.com/@abejitachiquititajcm" target="_blank" rel="noopener" class="social-btn tiktok">
+      <svg viewBox="0 0 24 24"><path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"/></svg>
+      TikTok
+    </a>
+  </div>
+  <div class="footer-areas">Servicio en: Durango · Sombrerete · Vicente Guerrero · Nombre de Dios · Chalchihuites · Suchil · San José de Ranchos y áreas circundantes</div>
+  <div class="footer-copy">© 2026 Abejita Chiquitita. Todos los derechos reservados.</div>
+</footer>
+
+<a href="https://wa.me/526182710341" class="whatsapp-float" target="_blank" rel="noopener">
+  <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+</a>
+
+<script>
+const items = document.querySelectorAll('.quote-item');
+const totalBar = document.getElementById('total-bar');
+const grandTotal = document.getElementById('grand-total');
+const hiddenDetail = document.getElementById('hidden-quote-detail');
+const hiddenTotal = document.getElementById('hidden-quote-total');
+const reqFields = ['f-nombre','f-tel','f-fecha','f-municipio'];
+
+function fmt(n){return '$'+n.toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g,',');}
+function formFilled(){return reqFields.every(id=>{const el=document.getElementById(id);return el&&el.value.trim()!==''});}
+
+function updateQuote(){
+  let total=0,details=[];
+  items.forEach(item=>{
+    const price=parseFloat(item.dataset.price)||0;
+    const isTbd=item.dataset.tbd==='true';
+    const max=item.dataset.max?parseInt(item.dataset.max):9999;
+    const input=item.querySelector('.qty-input');
+    let qty=parseInt(input.value)||0;
+    if(qty>max){qty=max;input.value=max;}
+    if(qty<0){qty=0;input.value=0;}
+    const lineTotal=price*qty;
+    total+=lineTotal;
+    const totalEl=item.querySelector('.qi-total');
+    if(isTbd){totalEl.textContent=qty>0?'Por cotizar':'—';}
+    else{totalEl.textContent=fmt(lineTotal);}
+    if(qty>0){
+      item.classList.add('active');
+      details.push(isTbd?item.dataset.service+' x'+qty+' = Por cotizar':item.dataset.service+' x'+qty+' = '+fmt(lineTotal));
+    }else{item.classList.remove('active');}
+  });
+  grandTotal.textContent=fmt(total);
+  hiddenDetail.value=details.length?details.join(' | '):'Sin servicios seleccionados';
+  hiddenTotal.value=fmt(total)+(details.some(d=>d.includes('Por cotizar'))?' + servicios por cotizar':'');
+  totalBar.classList.toggle('visible',formFilled());
+}
+
+items.forEach(item=>{
+  const input=item.querySelector('.qty-input');
+  const max=item.dataset.max?parseInt(item.dataset.max):9999;
+  const step=item.dataset.step?parseInt(item.dataset.step):1;
+
+  item.querySelector('.qty-btn.plus').addEventListener('click',()=>{
+    let v=parseInt(input.value)||0;
+    if(v===0){input.value=step;}
+    else if(v+step<=max){input.value=v+step;}
+    updateQuote();
+  });
+  item.querySelector('.qty-btn.minus').addEventListener('click',()=>{
+    let v=parseInt(input.value)||0;
+    if(v<=step){input.value=0;}
+    else{input.value=v-step;}
+    updateQuote();
+  });
+  input.addEventListener('blur',()=>{
+    let v=parseInt(input.value)||0;
+    if(v<0)v=0;
+    if(v>max)v=max;
+    if(step>1&&v>0){v=Math.round(v/step)*step;if(v<step)v=step;}
+    input.value=v;
+    updateQuote();
+  });
+  input.addEventListener('input',updateQuote);
+});
+
+reqFields.forEach(id=>{
+  const el=document.getElementById(id);
+  if(el){el.addEventListener('input',updateQuote);el.addEventListener('change',updateQuote);}
+});
+</script>
+</body>
+</html>
